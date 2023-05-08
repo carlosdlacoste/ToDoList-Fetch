@@ -26,13 +26,6 @@ const ToDoList = () => {
             setTaskList(data);
             setItemCount(data.length);
 
-            // data.map((element, index) => (
-                            
-            //     <li key={index} className="list-group-item d-flex justify-content-between">{element.label} {" "}
-            //         <button type="button" onClick={() => handleDeleteTask(index)} className="btn-close" aria-label="Close"></button>
-            //     </li>
-        
-            // ))  
         })
         .catch(err => {
             console.log(err);
@@ -55,7 +48,6 @@ const ToDoList = () => {
         })
         .then(data => {
             console.log(data); 
-            // setTaskList((taskList) => [...taskList, data]);
         })
         .catch(error => {
             console.log(error);
@@ -83,6 +75,52 @@ const ToDoList = () => {
         setItemCount(itemCount - 1);
     }
 
+    const deleteAllTasks = () => {
+
+        fetch('https://assets.breatheco.de/apis/fake/todos/user/carlosdlacoste', {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+        .then(resp => {
+            console.log(resp.ok);
+            console.log(resp.status);
+            return resp.json();
+        })
+        .then(data => {
+            console.log(data);
+            // setTaskList(data);
+            // setItemCount(data.length);
+
+        })
+        .catch(err => {
+            console.log(err);
+        })
+
+
+        // fetch('https://assets.breatheco.de/apis/fake/todos/user/carlosdlacoste', {
+        //     method: "POST",
+        //     body: [],
+        //     headers: {
+        //         "Content-Type": "application/json"
+        //     }
+        // })
+        // .then(resp => {
+        //     console.log(resp.ok);
+        //     console.log(resp.status);
+        //     return resp.json();
+        // })
+        // .then(data => {
+        //     console.log(data);
+
+        // })
+        // .catch(err => {
+        //     console.log(err);
+        // })
+
+    }
+
     
     return (
         <>
@@ -108,7 +146,7 @@ const ToDoList = () => {
                         taskList.length != 0 && <li className="list-group-item">{itemCount}{" "}item left</li>
                     }
                 </ul>
-                <button type="button" className="btn btn-danger mt-4" style={{width: "100%"}}>Delete all tasks</button>
+                <button type="button" onClick={() => deleteAllTasks()} className="btn btn-danger mt-4" style={{width: "100%"}}>Delete all tasks</button>
             </div>
         </>
     );
