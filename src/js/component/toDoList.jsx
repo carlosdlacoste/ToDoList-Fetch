@@ -126,6 +126,7 @@ const ToDoList = () => {
                         taskList.length != 0 && <li className="list-group-item">{itemCount}{" "}item left</li>
                     }
                 </ul>
+                <button type="button" className="btn btn-danger mt-4" style={{width: "100%"}}>Delete all tasks</button>
             </div>
         </>
     );
