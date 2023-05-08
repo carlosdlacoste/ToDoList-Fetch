@@ -18,7 +18,7 @@ const ToDoList = () => {
         .then(resp => {
             console.log(resp.ok);
             console.log(resp.status);
-            console.log(resp.text())
+            // console.log(resp.text())
             return resp.json();
         })
         .then(data => {
@@ -49,7 +49,7 @@ const ToDoList = () => {
         .then(resp => {
             console.log(resp.ok); 
             console.log(resp.status); 
-            console.log(resp.text()); 
+            // console.log(resp.text()); 
             return resp.json(); 
         })
         .then(data => {
@@ -68,25 +68,6 @@ const ToDoList = () => {
                 label: inputValue,
                 done: false
             }]);
-            // fetch('https://assets.breatheco.de/apis/fake/todos/user/carlosdlacoste', {
-            //     method: "POST",
-            //     body: JSON.stringify(taskList),
-            //     headers: {
-            //         "Content-Type": "application/json"
-            //     }
-            // })
-            // .then(resp => {
-            //     console.log(resp.ok); 
-            //     console.log(resp.status); 
-            //     console.log(resp.text()); 
-            //     return resp.json(); 
-            // })
-            // .then(data => {
-            //     console.log(data); 
-            // })
-            // .catch(error => {
-            //     console.log(error);
-            // });
             event.target.value = "";
             setInputValue(event.target.value);
             setItemCount(itemCount + 1);
