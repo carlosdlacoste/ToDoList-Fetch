@@ -23,7 +23,8 @@ const ToDoList = () => {
         })
         .then(data => {
             console.log(data);
-            setTaskList(data)  // revisar nuevamente esta linea de codigo
+            setTaskList(data);
+            setItemCount(data.length);
 
             // data.map((element, index) => (
                             
